@@ -1,0 +1,245 @@
+/* Movie Hero Section */
+.movie-hero {
+    position: relative;
+    height: 100vh;
+    color: #fff;
+    overflow: hidden;
+}
+
+.movie-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%), 
+                url('https://example.com/house-of-ninjas-backdrop.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.movie-content {
+    position: relative;
+    padding: 120px 60px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.movie-info {
+    max-width: 650px;
+}
+
+.movie-info h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.season-info, .year, .rating, .quality {
+    color: #fff;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.movie-stats {
+    font-size: 16px;
+    color: #46d369;
+}
+
+.movie-description {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.movie-meta {
+    font-size: 14px;
+    color: #a3a3a3;
+}
+
+.movie-meta p {
+    margin-bottom: 8px;
+}
+
+/* Episodes Section */
+.episodes-section {
+    background-color: #141414;
+    padding: 40px 0;
+}
+
+.episodes-section h2 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.episode-item {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: background-color 0.3s ease;
+}
+
+.episode-item:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.episode-number {
+    font-size: 1.5rem;
+    color: #a3a3a3;
+    width: 40px;
+    display: inline-block;
+    text-align: center;
+}
+
+.episode-thumbnail {
+    position: relative;
+    width: 230px;
+    height: 130px;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.episode-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.play-overlay i {
+    font-size: 40px;
+    color: #fff;
+}
+
+.episode-thumbnail:hover .play-overlay {
+    opacity: 1;
+}
+
+.episode-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.episode-info p {
+    color: #a3a3a3;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.duration {
+    color: #a3a3a3;
+    font-size: 14px;
+}
+
+/* Action Buttons */
+.action-buttons .btn {
+    padding: 12px 24px;
+    font-weight: 500;
+}
+
+.btn-secondary {
+    background-color: rgba(255,255,255,0.3);
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .movie-info h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .movie-content {
+        padding: 100px 30px;
+    }
+
+    .movie-info h1 {
+        font-size: 2.5rem;
+    }
+
+    .movie-description {
+        font-size: 1rem;
+    }
+
+    .episode-thumbnail {
+        width: 180px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .movie-content {
+        padding: 80px 20px;
+    }
+
+    .movie-info h1 {
+        font-size: 2rem;
+    }
+
+    .movie-info {
+        text-align: center;
+    }
+
+    .action-buttons {
+        justify-content: center;
+    }
+
+    .episode-item {
+        padding: 15px;
+    }
+
+    .episode-thumbnail {
+        width: 140px;
+        height: 80px;
+    }
+
+    .episode-info h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .movie-info h1 {
+        font-size: 1.8rem;
+    }
+
+    .movie-description {
+        font-size: 0.9rem;
+    }
+
+    .episode-thumbnail {
+        width: 120px;
+        height: 68px;
+    }
+
+    .episode-number {
+        font-size: 1.2rem;
+        width: 30px;
+    }
+
+    .action-buttons .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+} 

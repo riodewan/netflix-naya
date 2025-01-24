@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House of Ninjas - Netflix</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="player.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="video-player">
+        <!-- Back Button -->
+        <button class="back-button" onclick="window.history.back()">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+
+        <!-- Skip Intro Button (shown during preview) -->
+        <button class="skip-intro">
+            Skip Intro
+        </button>
+
+        <!-- Video Container -->
+        <div class="video-container">
+            <!-- Video Element -->
+            <video id="mainVideo" class="main-video">
+                <!-- Ganti src dengan path video Anda -->
+                <source src="path_to_your_video.mp4" type="video/mp4">
+                <!-- Tambahkan subtitle jika ada -->
+                <track 
+                    label="English" 
+                    kind="subtitles" 
+                    srclang="en" 
+                    src="path_to_subtitle_en.vtt"
+                >
+                Your browser does not support the video tag.
+            </video>
+
+            <!-- Netflix Logo (shown during loading) -->
+            <div class="netflix-loader">
+                <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="Netflix" class="netflix-logo">
+            </div>
+
+            <!-- Paused Info (shown when paused) -->
+            <div class="paused-info">
+                <div class="content">
+                    <h2>Sanctuary</h2>
+                    <h3>Episode 1 Ep. 1</h3>
+                    <p class="description">With her parents on strike, a spunky kid from Yakuza crime scenes starring...</p>
+                </div>
+                <div class="paused-label">Paused</div>
+            </div>
+
+            <!-- Video Controls -->
+            <div class="video-controls">
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 15%"></div>
+                    </div>
+                    <div class="time-info">
+                        <span class="current-time">14:52</span>
+                        <span class="duration">1:55:47</span>
+                    </div>
+                </div>
+
+                <!-- Control Buttons -->
+                <div class="controls-main">
+                    <div class="controls-left">
+                        <button class="control-button play-pause">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button class="control-button">
+                            <i class="fas fa-redo-alt"></i>
+                        </button>
+                        <div class="volume-control">
+                            <button class="control-button">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <div class="volume-slider">
+                                <div class="volume-progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="episode-info">
+                        <span class="episode-title">Sanctuary E1 "Episode 1"</span>
+                    </div>
+
+                    <div class="controls-right">
+                        <button class="control-button">
+                            <i class="fas fa-closed-captioning"></i>
+                        </button>
+                        <button class="control-button">
+                            <i class="fas fa-step-forward"></i>
+                        </button>
+                        <button class="control-button">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const videoPlayer = document.querySelector('.video-player');
+        const playPauseBtn = document.querySelector('.play-pause');
+        const mainVideo = document.getElementById('mainVideo');
+        const progressBar = document.querySelector('.progress-bar');
+        const currentTimeSpan = document.querySelector('.current-time');
+        const durationSpan = document.querySelector('.duration');
+        const volumeSlider = document.querySelector('.volume-slider');
+        const volumeProgress = document.querySelector('.volume-progress');
+        const volumeBtn = document.querySelector('.volume-control .control-button');
+        let isPlaying = false;
+
+        // Fungsi untuk memformat waktu
+        function formatTime(seconds) {
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = Math.floor(seconds % 60);
+            return `${h > 0 ? h + ':' : ''}${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        // Toggle play/pause
+        playPauseBtn.addEventListener('click', () => {
+            if (mainVideo.paused) {
+                mainVideo.play();
+                isPlaying = true;
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                videoPlayer.classList.remove('paused');
+            } else {
+                mainVideo.pause();
+                isPlaying = false;
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                videoPlayer.classList.add('paused');
+            }
+        });
+
+        // Update progress bar
+        mainVideo.addEventListener('timeupdate', () => {
+            const progress = (mainVideo.currentTime / mainVideo.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+            currentTimeSpan.textContent = formatTime(mainVideo.currentTime);
+        });
+
+        // Set video time when clicking progress bar
+        document.querySelector('.progress').addEventListener('click', (e) => {
+            const progressBar = e.currentTarget;
+            const clickPosition = (e.pageX - progressBar.offsetLeft) / progressBar.offsetWidth;
+            mainVideo.currentTime = clickPosition * mainVideo.duration;
+        });
+
+        // Volume control
+        volumeSlider.addEventListener('click', (e) => {
+            const volumeBar = e.currentTarget;
+            const clickPosition = (e.pageX - volumeBar.offsetLeft) / volumeBar.offsetWidth;
+            mainVideo.volume = clickPosition;
+            volumeProgress.style.width = `${clickPosition * 100}%`;
+            updateVolumeIcon(clickPosition);
+        });
+
+        function updateVolumeIcon(volume) {
+            const volumeIcon = volumeBtn.querySelector('i');
+            volumeIcon.className = 'fas';
+            if (volume === 0) {
+                volumeIcon.classList.add('fa-volume-mute');
+            } else if (volume < 0.5) {
+                volumeIcon.classList.add('fa-volume-down');
+            } else {
+                volumeIcon.classList.add('fa-volume-up');
+            }
+        }
+
+        // Mute/unmute
+        volumeBtn.addEventListener('click', () => {
+            if (mainVideo.muted) {
+                mainVideo.muted = false;
+                volumeProgress.style.width = `${mainVideo.volume * 100}%`;
+                updateVolumeIcon(mainVideo.volume);
+            } else {
+                mainVideo.muted = true;
+                volumeProgress.style.width = '0%';
+                updateVolumeIcon(0);
+            }
+        });
+
+        // Fullscreen
+        document.querySelector('.fa-expand').parentElement.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                videoPlayer.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        });
+
+        // Load metadata
+        mainVideo.addEventListener('loadedmetadata', () => {
+            durationSpan.textContent = formatTime(mainVideo.duration);
+            // Hide loader when video is ready
+            document.querySelector('.netflix-loader').style.display = 'none';
+        });
+
+        // Show/hide controls on mouse move
+        let timeout;
+        videoPlayer.addEventListener('mousemove', () => {
+            videoPlayer.classList.remove('hide-controls');
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                if (isPlaying) {
+                    videoPlayer.classList.add('hide-controls');
+                }
+            }, 3000);
+        });
+
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            switch(e.key.toLowerCase()) {
+                case ' ':
+                case 'k':
+                    playPauseBtn.click();
+                    break;
+                case 'f':
+                    document.querySelector('.fa-expand').parentElement.click();
+                    break;
+                case 'm':
+                    volumeBtn.click();
+                    break;
+                case 'arrowright':
+                    mainVideo.currentTime += 10;
+                    break;
+                case 'arrowleft':
+                    mainVideo.currentTime -= 10;
+                    break;
+                case 'arrowup':
+                    mainVideo.volume = Math.min(mainVideo.volume + 0.1, 1);
+                    volumeProgress.style.width = `${mainVideo.volume * 100}%`;
+                    updateVolumeIcon(mainVideo.volume);
+                    break;
+                case 'arrowdown':
+                    mainVideo.volume = Math.max(mainVideo.volume - 0.1, 0);
+                    volumeProgress.style.width = `${mainVideo.volume * 100}%`;
+                    updateVolumeIcon(mainVideo.volume);
+                    break;
+            }
+        });
+    </script>
+</body>
+</html> 

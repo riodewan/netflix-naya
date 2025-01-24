@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House of Ninjas - Netflix</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="home.css" rel="stylesheet">
+    <link href="movie-detail.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar (sama seperti home.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <!-- ... navbar content ... -->
+    </nav>
+
+    <!-- Movie Hero Section -->
+    <div class="movie-hero">
+        <div class="movie-backdrop"></div>
+        <div class="movie-content">
+            <div class="movie-info">
+                <div class="d-flex align-items-center mb-2">
+                    <span class="badge bg-light text-dark me-2">New</span>
+                    <span class="season-info">3 Seasons</span>
+                    <span class="year ms-2">2024</span>
+                    <span class="rating ms-2">TV-MA</span>
+                    <span class="quality ms-2">HD</span>
+                </div>
+                
+                <h1>HOUSE OF NINJAS</h1>
+                
+                <div class="movie-stats d-flex align-items-center mb-3">
+                    <span class="trending me-3">
+                        <i class="fas fa-arrow-trend-up"></i> #2 in TV Shows Today
+                    </span>
+                </div>
+
+                <p class="movie-description mb-4">
+                    Years after retiring from their formidable ninja lives, a dysfunctional family must return to shadowy missions to counteract a string of looming threats.
+                </p>
+
+                <div class="movie-meta mb-4">
+                    <p class="cast">Cast: Kento Kaku, Yosuke Eguchi, Tae Kimura, more</p>
+                    <p class="genres">Genres: TV Dramas, Japanese TV Shows, TV Action & Adventure</p>
+                    <p class="mood">This show is: Dark, Suspenseful</p>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="player.html" class="btn btn-light btn-lg me-2">
+                        <i class="fas fa-play me-2"></i>Play
+                    </a>
+                    <button class="btn btn-secondary btn-lg me-2">
+                        <i class="fas fa-plus me-2"></i>My List
+                    </button>
+                    <button class="btn btn-secondary btn-lg">
+                        <i class="fas fa-thumbs-up me-2"></i>Rate
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Episodes Section -->
+    <div class="episodes-section">
+        <div class="container-fluid px-5">
+            <h2 class="mb-4">Episodes</h2>
+            
+            <div class="episode-list">
+                <!-- Episode 1 -->
+                <div class="episode-item">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <span class="episode-number">1</span>
+                        </div>
+                        <div class="col-auto">
+                            <div class="episode-thumbnail">
+                                <img src="path_to_episode1_thumbnail.jpg" alt="Episode 1">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="episode-info">
+                                <div class="d-flex justify-content-between">
+                                    <h3>The Offer</h3>
+                                    <span class="duration">55m</span>
+                                </div>
+                                <p>While Haru Tanaka develops a crush on a mysterious young woman at work, an unusual opportunity arises at his father's financially struggling company.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Episode 2 -->
+                <div class="episode-item">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <span class="episode-number">2</span>
+                        </div>
+                        <div class="col-auto">
+                            <div class="episode-thumbnail">
+                                <img src="path_to_episode2_thumbnail.jpg" alt="Episode 2">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="episode-info">
+                                <div class="d-flex justify-content-between">
+                                    <h3>The Trial</h3>
+                                    <span class="duration">52m</span>
+                                </div>
+                                <p>As tensions rise within the family, a dangerous mission puts everyone's skills to the test.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

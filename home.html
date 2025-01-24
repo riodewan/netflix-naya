@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="home.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="Netflix" height="28">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">TV Shows</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">New & Popular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My List</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="search-box me-3">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Titles, people, genres" class="search-input">
+                    </div>
+                    <a href="#" class="nav-link me-3">
+                        <i class="fas fa-bell"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="Profile" class="profile-img">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="profiles.html">Switch Profiles</a></li>
+                            <li><a class="dropdown-item" href="#">Account</a></li>
+                            <li><a class="dropdown-item" href="#">Help Center</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="index.html">Sign out of Netflix</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Featured Content -->
+    <div class="featured-content">
+        <div class="featured-details">
+            <h1>House of Ninjas</h1>
+            <div class="featured-buttons">
+                <button class="btn btn-light btn-lg me-2">
+                    <i class="fas fa-play me-2"></i>Play
+                </button>
+                <a href="movie-detail.html" class="btn btn-secondary btn-lg">
+                    <i class="fas fa-info-circle me-2"></i>More Info
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Rows -->
+    <div class="content-container">
+        <!-- Popular on Netflix -->
+        <div class="content-row">
+            <h2>Popular on Netflix</h2>
+            <div class="movie-row">
+                <div class="movie-item">
+                    <img src="path_to_movie_image1.jpg" alt="Movie">
+                </div>
+                <!-- Repeat for more movies -->
+            </div>
+        </div>
+
+        <!-- Trending Now -->
+        <div class="content-row">
+            <h2>Trending Now</h2>
+            <div class="movie-row">
+                <div class="movie-item">
+                    <img src="path_to_movie_image2.jpg" alt="Movie">
+                </div>
+                <!-- Repeat for more movies -->
+            </div>
+        </div>
+
+        <!-- Continue Watching -->
+        <div class="content-row">
+            <h2>Continue Watching for Jennifer</h2>
+            <div class="movie-row">
+                <div class="movie-item">
+                    <img src="path_to_movie_image3.jpg" alt="Movie">
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 45%"></div>
+                    </div>
+                </div>
+                <!-- Repeat for more movies -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('navbar-scrolled');
+            } else {
+                document.querySelector('.navbar').classList.remove('navbar-scrolled');
+            }
+        });
+    </script>
+</body>
+</html> 

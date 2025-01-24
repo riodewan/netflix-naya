@@ -1,0 +1,183 @@
+body {
+    background-color: #141414;
+    font-family: 'Netflix Sans', 'Helvetica Neue', Segoe UI, Roboto, Ubuntu, sans-serif;
+}
+
+.profiles-container {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.profiles-container h1 {
+    color: #fff;
+    font-size: 3.5vw;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profiles-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.profile-item {
+    text-align: center;
+    cursor: pointer;
+    width: 150px;
+}
+
+.profile-icon {
+    width: 150px;
+    height: 150px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.profile-icon:hover {
+    border-color: #fff;
+}
+
+.profile-smile {
+    color: #fff;
+    font-size: 50px;
+    line-height: 1;
+}
+
+.profile-name {
+    color: rgb(128, 128, 128);
+    font-size: 1.3vw;
+    transition: color 0.2s ease;
+}
+
+.profile-item:hover .profile-name {
+    color: #fff;
+}
+
+/* Profile Colors */
+.red {
+    background-color: #E50914;
+}
+
+.blue {
+    background-color: #00A9E0;
+}
+
+.purple {
+    background-color: #8B00FF;
+}
+
+.yellow {
+    background-color: #FFA500;
+}
+
+.add-profile {
+    background-color: #141414;
+    border: 2px solid rgb(128, 128, 128);
+}
+
+.add-profile i {
+    color: rgb(128, 128, 128);
+    font-size: 40px;
+}
+
+.add-profile:hover {
+    border-color: #fff;
+}
+
+.add-profile:hover i {
+    color: #fff;
+}
+
+.manage-profiles-btn {
+    margin-top: 50px;
+    background: transparent;
+    color: rgb(128, 128, 128);
+    border: 1px solid rgb(128, 128, 128);
+    padding: 8px 24px;
+    font-size: 1.2vw;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.manage-profiles-btn:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .profiles-container h1 {
+        font-size: 32px;
+    }
+
+    .profile-item {
+        width: 120px;
+    }
+
+    .profile-icon {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-name {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .profiles-container {
+        padding: 20px;
+    }
+
+    .profiles-list {
+        gap: 20px;
+    }
+
+    .profile-item {
+        width: 100px;
+    }
+
+    .profile-icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .manage-profiles-btn {
+        font-size: 14px;
+        padding: 6px 20px;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .profiles-container h1 {
+        font-size: 24px;
+    }
+
+    .profile-item {
+        width: 80px;
+    }
+
+    .profile-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-name {
+        font-size: 12px;
+    }
+} 

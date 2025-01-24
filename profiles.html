@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - Who's watching?</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+    <link href="profiles.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-black">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid px-5">
+            <a class="navbar-brand" href="#">
+                <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="Netflix" height="45">
+            </a>
+        </div>
+    </nav>
+
+    <!-- Profiles Section -->
+    <div class="profiles-container">
+        <h1>Who's watching?</h1>
+        
+        <div class="profiles-list">
+            <!-- Profile 1 -->
+            <a href="home.html" class="profile-item text-decoration-none">
+                <div class="profile-icon red">
+                    <span class="profile-smile">◠‿◠</span>
+                </div>
+                <span class="profile-name">Jennifer</span>
+            </a>
+
+            <!-- Profile 2 -->
+            <div class="profile-item">
+                <div class="profile-icon blue">
+                    <span class="profile-smile">◠‿◠</span>
+                </div>
+                <span class="profile-name">Bill</span>
+            </div>
+
+            <!-- Profile 3 -->
+            <div class="profile-item">
+                <div class="profile-icon purple">
+                    <span class="profile-smile">◠‿◠</span>
+                </div>
+                <span class="profile-name">Alise</span>
+            </div>
+
+            <!-- Profile 4 -->
+            <div class="profile-item">
+                <div class="profile-icon yellow">
+                    <span class="profile-smile">◠‿◠</span>
+                </div>
+                <span class="profile-name">James</span>
+            </div>
+
+            <!-- Add Profile Button -->
+            <div class="profile-item">
+                <div class="profile-icon add-profile">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <span class="profile-name">Add Profile</span>
+            </div>
+        </div>
+
+        <button class="manage-profiles-btn">Manage Profiles</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
